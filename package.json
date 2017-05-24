@@ -1,7 +1,7 @@
 {
   "name": "redux-flash",
   "version": "1.0.0",
-  "description": "Action creators for displaying global flash messages",
+  "description": "Redux action creators for displaying flash messages",
   "main": "lib/index.js",
   "scripts": {
     "start": "yarn run build:development",
