@@ -20,7 +20,7 @@ const ERROR_MESSAGES = [
 
 const ALL_MESSAGES = [ ...ERROR_MESSAGES, ...SUCCESS_MESSAGES ]
 
-const STATE = { messages: ALL_MESSAGES }
+const STATE = { flash: { messages: ALL_MESSAGES } }
 
 test('getFlashMessages gets all flash messages', () => {
   expect(getFlashMessages(STATE)).toEqual(ALL_MESSAGES)
