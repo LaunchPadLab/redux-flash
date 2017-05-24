@@ -1,6 +1,6 @@
 {
   "name": "redux-flash",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Redux action creators for displaying flash messages",
   "main": "lib/index.js",
   "scripts": {
@@ -14,6 +14,7 @@
     "test:coverage": "jest --coverage",
     "report-coverage": "codeclimate-test-reporter < coverage/lcov.info"
   },
+  "repository": "launchpadlab/redux-flash",
   "keywords": [
     "redux",
     "flash",
