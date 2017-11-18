@@ -36,3 +36,4 @@ export const flashErrorMessage = (message, options) => {
   return flashMessage(message, { isError: true, ...options })
 }
 
+export const removeMessage = removeFlash
