@@ -15,7 +15,7 @@ export const reducer = handleActions({
     const messages = [ ...state.messages, payload ]
     return { ...state, messages }
   },
-  [removeFlash]: (state, { payload: { id }}) => {
+  [removeFlash]: (state, { payload: id }) => {
     const messages = state.messages.filter(m => m.id !== id)
     return { ...state, messages }
   },
@@ -26,7 +26,7 @@ export const reducer = handleActions({
 
 // Selectors
 export const getFlashMessages = (state) => {
-  if (!state.flash) throw 'redux-flash: state not found. Did you remember to attach the reducer at key `flash`?'  
+  if (!state.flash) throw 'redux-flash: state not found. Did you remember to attach the reducer at key `flash`?'
   return state.flash.messages
 }
 

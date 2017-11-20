@@ -24,7 +24,7 @@ export const flashMessage = (message, options={}) => {
   return (dispatch) => {
     if (push) dispatch(clearMessages())
     dispatch(addFlash({ id, message, isError, props }))
-    if (timeout) setTimeout(() => dispatch(removeFlash({ id })), timeout)
+    if (timeout) setTimeout(() => dispatch(removeFlash(id)), timeout)
   }
 }
 
