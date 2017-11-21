@@ -1,6 +1,6 @@
 {
   "name": "redux-flash",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Redux action creators for displaying flash messages",
   "main": "lib/index.js",
   "scripts": {
@@ -41,7 +41,9 @@
     "rimraf": "^2.5.4"
   },
   "dependencies": {
-    "redux-actions": "^2.0.3"
+    "babel-preset-react": "^6.24.1",
+    "redux-actions": "^2.0.3",
+    "uuid": "^3.1.0"
   },
   "peerDependencies": {
     "redux": "^3.6.0",

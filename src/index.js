@@ -3,6 +3,7 @@ export {
   flashSuccessMessage,
   flashErrorMessage,
   clearMessages,
+  removeMessage,
 } from './actions'
 export {
   reducer,

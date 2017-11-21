@@ -1,4 +1,5 @@
 import { createAction } from 'redux-actions'
+import uuid from 'uuid/v4'
 
 const DEFAULT_TIMEOUT = 3000
 
@@ -19,12 +20,12 @@ export const flashMessage = (message, options={}) => {
     props={},
   } = options
 
-  const id = Date.now()
+  const id = uuid()
 
   return (dispatch) => {
     if (push) dispatch(clearMessages())
     dispatch(addFlash({ id, message, isError, props }))
-    if (timeout) setTimeout(() => dispatch(removeFlash({ id })), timeout)
+    if (timeout) setTimeout(() => dispatch(removeFlash(id)), timeout)
   }
 }
 
@@ -36,3 +37,4 @@ export const flashErrorMessage = (message, options) => {
   return flashMessage(message, { isError: true, ...options })
 }
 
+export const removeMessage = removeFlash

@@ -2,7 +2,7 @@ import {
   reducer,
 } from '../src'
 import {
-  addFlash, 
+  addFlash,
   removeFlash,
   clearMessages,
 } from '../src/actions'
@@ -19,7 +19,7 @@ test('reducer removes flash messages correctly', () => {
   const PRIOR_MESSAGES = [{ message: 'Foo', id: 0 }, { message: 'Bar', id: 1 }]
   const TO_REMOVE = { message: 'New message', id: 2 }
   const initialState = { messages: [ ...PRIOR_MESSAGES, TO_REMOVE ] }
-  const newState = reducer(initialState, removeFlash({ id: 2 }))
+  const newState = reducer(initialState, removeFlash(2))
   expect(newState).toEqual({ messages: PRIOR_MESSAGES })
 })
 

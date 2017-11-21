@@ -10,7 +10,7 @@ This library provides a simple way to manage flash messages in Redux application
 ```javascript
 
 import { createStore, combineReducers } from 'redux'
-import { 
+import {
     reducer as flashReducer,
     flashMessage,
     getFlashMessages,
@@ -35,12 +35,12 @@ store.dispatch(action)
 const state = store.getState()
 
 getFlashMessages(state)
-// => 
-// [{ 
-//    id: 1495649041702, 
-//    message: 'This is a test message!', 
-//    isError: false, 
-//    props: {} 
+// =>
+// [{
+//    id: 1495649041702,
+//    message: 'This is a test message!',
+//    isError: false,
+//    props: {}
 // }]
 
 ```
@@ -55,6 +55,7 @@ getFlashMessages(state)
 - `flashErrorMessage(message, options)`: Create a flash message with the `isError` option flag set to `true`.
 - `flashSuccessMessage(message, options)`: An alias for `flashMessage()`.
 - `clearMessages()`: Clear all flash messages.
+- `removeMessage(messageID)`: Clear a particular flash message.
 
 The `options` object passed to these action creators may contain the following attributes:
 
@@ -74,7 +75,7 @@ The `options` object passed to these action creators may contain the following a
 
 Message objects returned by these selectors will have the following format:
 ```javascript
-{ 
+{
    id: 1495649041702, // A unique ID
    message: 'This is a test message!', // The message text
    isError: false, // Whether the message is an error
@@ -100,9 +101,9 @@ import { getLatestMessage } from 'redux-flash'
 function FlashMessages ({ flash }) {
     return (
         <div>
-        { 
+        {
             flash && <div>{ flash.message }</div>
-        } 
+        }
         </div>
     )
 }
@@ -122,7 +123,3 @@ function mapStateToProps (state) {
 export default connect(mapStateToProps)(FlashMessage)
 
 ```
-
-
-
-
