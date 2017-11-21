@@ -55,7 +55,7 @@ getFlashMessages(state)
 - `flashErrorMessage(message, options)`: Create a flash message with the `isError` option flag set to `true`.
 - `flashSuccessMessage(message, options)`: An alias for `flashMessage()`.
 - `clearMessages()`: Clear all flash messages.
-- `removeMessage(messageID)`: Clear a particular flash messages.
+- `removeMessage(messageID)`: Clear a particular flash message.
 
 The `options` object passed to these action creators may contain the following attributes:
 
