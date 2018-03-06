@@ -2,7 +2,7 @@ import {
   flashMessage,
   flashErrorMessage,
 } from '../src'
-import configureStore from './mock-store'
+import configureStore from './mockStore'
 import thunkMiddleware from 'redux-thunk'
 
 const mockStore = configureStore([ thunkMiddleware ])

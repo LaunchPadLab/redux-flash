@@ -5,6 +5,7 @@ export {
   clearMessages,
   removeMessage,
 } from './actions'
+export flashMessageType from './flashMessageType'
 export {
   reducer,
   getFlashMessages,

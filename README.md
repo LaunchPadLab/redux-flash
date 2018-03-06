@@ -83,6 +83,8 @@ Message objects returned by these selectors will have the following format:
 }
 ```
 
+A [PropType](https://github.com/facebook/prop-types) for this object is exported from this module as `flashMessageType`.
+
 ### Reducer
 
 `redux-flash` exposes a reducer to handle the actions it creates. This reducer must be attached to your root reducer using the key `flash` in order for the library to function (see [example](#example)).
@@ -96,7 +98,7 @@ Message objects returned by these selectors will have the following format:
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { getLatestMessage } from 'redux-flash'
+import { getLatestMessage, flashMessageType } from 'redux-flash'
 
 function FlashMessages ({ flash }) {
     return (
@@ -109,9 +111,7 @@ function FlashMessages ({ flash }) {
 }
 
 FlashMessages.propTypes = {
-    flash: PropTypes.shape({
-        message: PropTypes.string.isRequired
-    })
+    flash: flashMessageType
 }
 
 function mapStateToProps (state) {
