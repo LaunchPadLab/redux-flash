@@ -21,5 +21,4 @@ test('propTypes match flash message object shape', () => {
   // Get generated flash message
   const messageObject = store.getActions().pop().payload
   return validatePropType(flashMessageType, messageObject)
-  // PropTypes.checkPropTypes({ messageObject: propTypes }, { messageObject })
 })
