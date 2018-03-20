@@ -1,6 +1,6 @@
 {
   "name": "redux-flash",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Redux action creators for displaying flash messages",
   "main": "lib/index.js",
   "scripts": {

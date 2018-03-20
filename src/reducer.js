@@ -27,9 +27,9 @@ export const reducer = handleActions({
 // Selectors
 export const getFlashMessages = (state) => {
   if (!state.flash) throw 'redux-flash: state not found. Did you remember to attach the reducer at key `flash`?'
-  return state.flash.messages
+  return [ ...state.flash.messages ]
 }
 
 export const getSuccessMessages = (state) => getFlashMessages(state).filter(m => !m.isError)
 export const getErrorMessages = (state) => getFlashMessages(state).filter(m => m.isError)
-export const getLatestMessage = (state) => [ ...getFlashMessages(state) ].pop()
+export const getLatestMessage = (state) => getFlashMessages(state).pop()
