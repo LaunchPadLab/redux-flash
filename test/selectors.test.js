@@ -26,6 +26,10 @@ test('getFlashMessages gets all flash messages', () => {
   expect(getFlashMessages(STATE)).toEqual(ALL_MESSAGES)
 })
 
+test('getFlashMessages throws an error when state is set up incorrectly', () => {
+  expect(() => getFlashMessages({})).toThrow()
+})
+
 test('getSuccessMessages gets all non-error flash messages', () => {
   expect(getSuccessMessages(STATE)).toEqual(SUCCESS_MESSAGES)
 })
