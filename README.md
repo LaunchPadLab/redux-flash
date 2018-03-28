@@ -5,6 +5,10 @@
 
 This library provides a simple way to manage flash messages in Redux applications. It includes action creators for creating configurable flash messages as well as selectors for accessing those messages from anywhere in your application.
 
+### Migration guides
+
+- [v2.0.0](migration-guides/v2.0.0.md)
+
 ## Example
 
 ```javascript
