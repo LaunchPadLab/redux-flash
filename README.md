@@ -5,13 +5,18 @@
 
 This library provides a simple way to manage flash messages in Redux applications. It includes action creators for creating configurable flash messages as well as selectors for accessing those messages from anywhere in your application.
 
+### Migration guides
+
+- [v2.0.0](migration-guides/v2.0.0.md)
+
 ## Example
 
 ```javascript
 
-import { createStore, combineReducers } from 'redux'
+import { applyMiddleware, createStore, combineReducers } from 'redux'
 import {
     reducer as flashReducer,
+    middleware as flashMiddleware,
     flashMessage,
     getFlashMessages,
 } from 'redux-flash'
@@ -23,7 +28,9 @@ const reducer = combineReducers({
     ...
 })
 
-const store = createStore(reducer, {})
+// Then, apply the flash middleware when creating the store
+
+const store = createStore(reducer, {}, applyMiddleware(flashMiddleware()))
 
 // Now you can dispatch flash actions
 
@@ -63,6 +70,19 @@ The `options` object passed to these action creators may contain the following a
 - `isError`: A flag indicating whether the message is an error message.
 - `timeout`: A timeout (ms) after which the message will be removed (default: `3000`). If this value is `false`, the message will persist indefinitely.
 - `props`: Any additional values to pass to the message object.
+
+### Middleware
+
+You can also modify the behavior of flash messages globally by passing options to the flash middleware:
+
+```javascript
+const flashOptions = { timeout: 5000 }
+const store = createStore(reducer, {}, applyMiddleware(flashMiddleware(flashOptions))))
+```
+The `options` object passed to the middleware may contain the following attributes:
+
+- `timeout`: A timeout (ms) after which the message will be removed (default: `3000`).
+- `props`: Default props that will be merged with each message's props.
 
 ### Selectors
 

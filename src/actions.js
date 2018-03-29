@@ -1,40 +1,34 @@
 import { createAction } from 'redux-actions'
-import uuid from 'uuid/v4'
 
-const DEFAULT_TIMEOUT = 3000
+export const FLASH_MESSAGE_ACTION_TYPE = '@@redux-flash/FLASH'
+export const CLEAR_MESSAGES_ACTION_TYPE = '@@redux-flash/CLEAR_MESSAGES'
+export const REMOVE_MESSAGE_ACTION_TYPE = '@@redux-flash/REMOVE_MESSAGE'
+export const ADD_MESSAGE_ACTION_TYPE = '@@redux-flash/ADD_MESSAGE'
 
-// Pure actions
-
-export const addFlash = createAction('ADD_FLASH')
-export const removeFlash = createAction('REMOVE_FLASH')
-export const clearMessages = createAction('CLEAR_MESSAGES')
-
-// Thunks
-
+// This action will be picked up by the middleware
 export const flashMessage = (message, options={}) => {
-
-  const {
-    push=false,
-    isError=false,
-    timeout=DEFAULT_TIMEOUT,
-    props={},
-  } = options
-
-  const id = uuid()
-
-  return (dispatch) => {
-    if (push) dispatch(clearMessages())
-    dispatch(addFlash({ id, message, isError, props }))
-    if (timeout) setTimeout(() => dispatch(removeFlash(id)), timeout)
+  return {
+    type: FLASH_MESSAGE_ACTION_TYPE,
+    payload: {
+      message,
+      options,
+    }
   }
 }
 
-// Aliases
+// Pure actions
 
+export const clearMessages = createAction(CLEAR_MESSAGES_ACTION_TYPE)
+export const removeMessage = createAction(REMOVE_MESSAGE_ACTION_TYPE)
+
+// Internal actions
+
+export const _addMessage = createAction(ADD_MESSAGE_ACTION_TYPE)
+
+// Aliases 
 export const flashSuccessMessage = flashMessage
 
 export const flashErrorMessage = (message, options) => {
   return flashMessage(message, { isError: true, ...options })
 }
 
-export const removeMessage = removeFlash

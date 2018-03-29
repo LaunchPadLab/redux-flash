@@ -3,10 +3,7 @@ import {
   flashMessage,
   flashMessageType,
 } from '../src'
-import configureStore from './mockStore'
-import thunkMiddleware from 'redux-thunk'
-
-const mockStore = configureStore([ thunkMiddleware ])
+import { createMockStore } from './helpers'
 
 function validatePropType (propType, value) {
   // checkPropTypes will log an error if it fails
@@ -16,7 +13,7 @@ function validatePropType (propType, value) {
 }
 
 test('propTypes match flash message object shape', () => {
-  const store = mockStore({})
+  const store = createMockStore()
   store.dispatch(flashMessage('Hi'))
   // Get generated flash message
   const messageObject = store.getActions().pop().payload

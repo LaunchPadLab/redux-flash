@@ -1,9 +1,5 @@
 import { handleActions } from 'redux-actions'
-import {
-  addFlash,
-  removeFlash,
-  clearMessages,
-} from './actions'
+import * as actions from './actions'
 
 const initialState = {
   messages: []
@@ -11,22 +7,25 @@ const initialState = {
 
 // Reducer
 export const reducer = handleActions({
-  [addFlash]: (state, { payload }) => {
+  [actions.FLASH_MESSAGE_ACTION_TYPE]: () => {
+    throw new Error('redux-flash: missing middleware. Did you remember to add it when initializing your store?')
+  },
+  [actions._addMessage]: (state, { payload }) => {
     const messages = [ ...state.messages, payload ]
     return { ...state, messages }
   },
-  [removeFlash]: (state, { payload: id }) => {
+  [actions.removeMessage]: (state, { payload: id }) => {
     const messages = state.messages.filter(m => m.id !== id)
     return { ...state, messages }
   },
-  [clearMessages]: (state) => {
+  [actions.clearMessages]: (state) => {
     return { ...state, messages: [] }
   },
 }, initialState)
 
 // Selectors
 export const getFlashMessages = (state) => {
-  if (!state.flash) throw 'redux-flash: state not found. Did you remember to attach the reducer at key `flash`?'
+  if (!state.flash) throw new Error('redux-flash: state not found. Did you remember to attach the reducer at key `flash`?')
   return [ ...state.flash.messages ]
 }
 
