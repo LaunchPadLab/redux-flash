@@ -3,6 +3,7 @@ node_js:
 - '8'
 notifications:
   email: false
+before_script: yarn size
 deploy:
   provider: npm
   email: davidstoreypickart@gmail.com
