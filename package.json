@@ -33,7 +33,7 @@
   "devDependencies": {
     "@launchpadlab/babel-preset": "^1.0.0",
     "babel-cli": "^6.22.2",
-    "babel-eslint": "^7.1.1",
+    "babel-eslint": "^10.0.0",
     "codeclimate-test-reporter": "^0.4.1",
     "eslint": "^3.15.0",
     "eslint-plugin-import": "^2.2.0",
