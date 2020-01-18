@@ -32,7 +32,7 @@
   ],
   "devDependencies": {
     "@launchpadlab/babel-preset": "^2.1.0",
-    "@size-limit/preset-small-lib": "^2.1.1",
+    "@size-limit/preset-small-lib": "^3.0.0",
     "babel-eslint": "^10.0.2",
     "codeclimate-test-reporter": "^0.4.1",
     "eslint": "^6.1.0",
