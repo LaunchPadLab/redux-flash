@@ -46,7 +46,7 @@
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "prop-types": "^15.6.1",
-    "redux-actions": "^2.6.5",
+    "redux-actions": "^3.0.0",
     "uuid": "^3.1.0"
   },
   "peerDependencies": {
