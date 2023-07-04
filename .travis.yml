@@ -1,6 +1,7 @@
 language: node_js
 node_js:
 - '18'
+dist: 'jammy'
 notifications:
   email: false
 before_script: yarn size
