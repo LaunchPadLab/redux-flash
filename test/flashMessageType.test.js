@@ -5,6 +5,8 @@ import {
 } from '../src'
 import { createMockStore } from './helpers'
 
+jest.useFakeTimers()
+
 function validatePropType (propType, value) {
   // checkPropTypes will log an error if it fails
   const spy = jest.spyOn(console, 'error')

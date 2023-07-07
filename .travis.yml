@@ -1,6 +1,7 @@
 language: node_js
 node_js:
-- '8'
+- '18'
+dist: 'jammy'
 notifications:
   email: false
 before_script: yarn size
@@ -10,5 +11,5 @@ deploy:
   api_key:
     secure: Mu68/DGE+RC2TilCle7RXuqeluOCsR2MMSFge2MLNGWDdtv/j5S5gMYFuHKw61ASpBQ1bJsJmuIJ1/MHrAQ5S67N6/8lA2LVVSzWMB30h28anUm+lCSGZMWcy+Z+z1xXLMOAMrDglHGwAmt5NabUKIpHc9YWuPE3T3yp2ilVq81ameFObPZ08ISM8pmF90bp1qIXwk1iUPTcCWa6UkIfhpfAdMVHVWXLWIyaZ3+/p8mYNpc27mW23GrWcejDfgUUI9Oe+5pv/fb3RBO2HXLmIt582s+H3/evY9VSHTKt2e/CbBO2umgE1Bgn5Al7VIX8YRb62effbxUyNMVLk15UQnTVWu7m3/V2+N3pnFrJzMFJMS7JNmIPzCb+xFKvKaqo6qklfc6Wir8IW8mMyB1KznoaqEeOJ9daehmQgCQkCulzl5h6HLQ08OFQ5WUcsSHgAJgUlXsL2u5izQNZhbhT1eMP/YwNZvbI072Yxw468U0oaeGaj1Y0rnmtQR0UT3QcfyEyzzZ/2+FwDRF9AfZwhMDx7BNrlCuQ0Z2lnj54fggXe2q0G6NBrpC6Vw610FTCwBQ3yzQKnQ8IQckYxp/nD7ew2mnaQJnj0V4wn9MqquijOukBKUfEFmRjliKYLdTIUZBPJ9wBua1PrBlO6QIeBJzPlsDA039CB4icBYE2CCw=
   on:
-    branch: master
+    branch: main
   skip_cleanup: true

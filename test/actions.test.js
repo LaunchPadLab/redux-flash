@@ -21,7 +21,7 @@ test('flashMessage sets default timeout if none is provided', () => {
   const store = createMockStore()
   store.dispatch(flashMessage('Hi'))
   expect(store.getActionTypes()).toEqual([ADD_MESSAGE_ACTION_TYPE])
-  jest.runTimersToTime(4000)
+  jest.advanceTimersByTime(4000)
   expect(store.getActionTypes()).toEqual([ADD_MESSAGE_ACTION_TYPE, REMOVE_MESSAGE_ACTION_TYPE])
 })
 
@@ -29,7 +29,7 @@ test('flashMessage sets custom timeout if one is provided in action creator', ()
   const store = createMockStore()
   store.dispatch(flashMessage('Hi', { timeout: 500 }))
   expect(store.getActionTypes()).toEqual([ADD_MESSAGE_ACTION_TYPE])
-  jest.runTimersToTime(1000)
+  jest.advanceTimersByTime(1000)
   expect(store.getActionTypes()).toEqual([ADD_MESSAGE_ACTION_TYPE, REMOVE_MESSAGE_ACTION_TYPE])
 })
 
@@ -37,7 +37,7 @@ test('flashMessage sets custom timeout if one is provided in middleware config',
   const store = createMockStore({}, { timeout: 500 })
   store.dispatch(flashMessage('Hi'))
   expect(store.getActionTypes()).toEqual([ADD_MESSAGE_ACTION_TYPE])
-  jest.runTimersToTime(1000)
+  jest.advanceTimersByTime(1000)
   expect(store.getActionTypes()).toEqual([ADD_MESSAGE_ACTION_TYPE, REMOVE_MESSAGE_ACTION_TYPE])
 })
 
@@ -45,7 +45,7 @@ test('flashMessage sets no timeout if "false" is provided', () => {
   const store = createMockStore()
   store.dispatch(flashMessage('Hi', { timeout: false }))
   expect(store.getActionTypes()).toEqual([ADD_MESSAGE_ACTION_TYPE])
-  jest.runTimersToTime(4000)
+  jest.advanceTimersByTime(4000)
   expect(store.getActionTypes()).toEqual([ADD_MESSAGE_ACTION_TYPE])
 })
 

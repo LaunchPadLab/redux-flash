@@ -1,4 +1,4 @@
-import uuid from 'uuid/v4'
+import { v4 as uuidv4 } from 'uuid'
 import * as actions from './actions'
 
 const DEFAULT_TIMEOUT = 3000
@@ -26,7 +26,7 @@ function middleware (options={}) {
         }
       }
     } = action
-    const id = uuid()
+    const id = uuidv4()
     // Dispatch appropriate internal actions
     if (push) next(actions.clearMessages())
     next(actions._addMessage({ id, message, isError, props: { ...globalProps, ...props }}))
