@@ -32,7 +32,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.22.6",
     "@launchpadlab/babel-preset": "^2.1.0",
-    "@size-limit/file": "^8.2.6",
+    "@size-limit/file": "^9.0.0",
     "@size-limit/webpack": "^8.2.6",
     "eslint": "^8.44.0",
     "eslint-plugin-import": "^2.2.0",
