@@ -42,7 +42,7 @@
     "size-limit": "^8.2.6"
   },
   "dependencies": {
-    "@babel/cli": "^7.5.5",
+    "@babel/cli": "^8.0.0",
     "@babel/core": "^7.5.5",
     "prop-types": "^15.6.1",
     "redux-actions": "^2.6.5",
