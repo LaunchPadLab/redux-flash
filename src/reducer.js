@@ -24,11 +24,32 @@ export const reducer = handleActions({
 }, initialState)
 
 // Selectors
-export const getFlashMessages = (state) => {
-  if (!state.flash) throw new Error('redux-flash: state not found. Did you remember to attach the reducer at key `flash`?')
-  return [ ...state.flash.messages ]
+
+// Selectors return the same reference until state.flash.messages changes,
+// so useSelector / connect consumers don't re-render on unrelated actions.
+function memoizeOnMessages (selector) {
+  let lastMessages
+  let lastResult
+  return (messages) => {
+    if (messages !== lastMessages) {
+      lastMessages = messages
+      lastResult = selector(messages)
+    }
+    return lastResult
+  }
 }
 
-export const getSuccessMessages = (state) => getFlashMessages(state).filter(m => !m.isError)
-export const getErrorMessages = (state) => getFlashMessages(state).filter(m => m.isError)
-export const getLatestMessage = (state) => getFlashMessages(state).pop()
+export const getFlashMessages = (state) => {
+  if (!state.flash) throw new Error('redux-flash: state not found. Did you remember to attach the reducer at key `flash`?')
+  return state.flash.messages
+}
+
+const selectSuccessMessages = memoizeOnMessages(messages => messages.filter(m => !m.isError))
+const selectErrorMessages = memoizeOnMessages(messages => messages.filter(m => m.isError))
+
+export const getSuccessMessages = (state) => selectSuccessMessages(getFlashMessages(state))
+export const getErrorMessages = (state) => selectErrorMessages(getFlashMessages(state))
+export const getLatestMessage = (state) => {
+  const messages = getFlashMessages(state)
+  return messages[messages.length - 1]
+}
